@@ -65,23 +65,16 @@ channel_type = []
 FixedBossDateData = []
 indexFixedBossname = []
 
-# access_token = os.environ["BOT_TOKEN"]			
-# git_access_token = os.environ["GIT_TOKEN"]			
-# git_access_repo = os.environ["GIT_REPO"]			
-# git_access_repo_restart = os.environ["GIT_REPO_RESTART"]
-# try:	
-# 	aws_key = os.environ["AWS_KEY"]			
-# 	aws_secret_key = os.environ["AWS_SECRET_KEY"]			
-# except:
-# 	aws_key = ""
-# 	aws_secret_key = ""
-
-access_token = "NzA0NTE1NDEyMTU4NTc4NzA4.XqeRGw.1E6rvmAcEZp-qD2PoNQ3B5n1Hbg"
-git_access_token = "1979b132f46ce8a795680e0e2e5b085b5a037324"
-git_access_repo = "ilsang1212/ilsangDB"
-git_access_repo_restart = "ilsang1212/ilsang"
-aws_key = ""
-aws_secret_key = ""
+access_token = os.environ["BOT_TOKEN"]			
+git_access_token = os.environ["GIT_TOKEN"]			
+git_access_repo = os.environ["GIT_REPO"]			
+git_access_repo_restart = os.environ["GIT_REPO_RESTART"]
+try:	
+	aws_key = os.environ["AWS_KEY"]			
+	aws_secret_key = os.environ["AWS_SECRET_KEY"]			
+except:
+	aws_key = ""
+	aws_secret_key = ""
 
 g = Github(git_access_token)
 repo = g.get_repo(git_access_repo)
@@ -467,7 +460,7 @@ async def MakeSound(saveSTR, filename):
 	if aws_key != "" and aws_secret_key != "":
 		polly = boto3.client("polly", aws_access_key_id = aws_key, aws_secret_access_key = aws_secret_key, region_name = "eu-west-1")
 
-		s = '<speak><prosody rate="' + str(100) + '%">' +  saveSTR + '</prosody></speak>'
+		s = '<speak><prosody rate="' + str(95) + '%">' +  saveSTR + '</prosody></speak>'
 
 		response = polly.synthesize_speech(
 			TextType = "ssml",
